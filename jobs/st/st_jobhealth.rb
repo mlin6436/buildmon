@@ -47,15 +47,18 @@ st_config = Helpers::ConfigHelper.new({
         "syndication-manager-webapp" => "syndication-manager-webapp",
         "syndication-manager-release" => "syndication-manager-release",
       },
-    },
-    {
-      ci_root: "https://ci-app.test.bbc.co.uk/hudson/api/json",
-      jobs: {
-        "syndication-manager-build" => "syndication-manager-build",
-      },
-    }]
+    }
+    ]
 });
 
 SCHEDULER.every '10s', :first_in => 0 do |job|
   JobHealth::Job.updateUsing st_config
 end
+
+
+# {
+#   ci_root: "https://ci-app.test.bbc.co.uk/hudson/api/json",
+#   jobs: {
+#     "syndication-manager-build" => "syndication-manager-build",
+#   },
+# }
