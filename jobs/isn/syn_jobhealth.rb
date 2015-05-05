@@ -1,9 +1,9 @@
 require_relative '../jobhealth_module'
 require_relative '../configuration_helper'
 
-st_config = Helpers::ConfigHelper.new({
-    job_prefix: "st_",
-    col_count: 3,
+syn_config = Helpers::ConfigHelper.new({
+    job_prefix: "syn_",
+    col_count: 2,
     job_css: "medium_font",
     components: [
     {
@@ -47,18 +47,16 @@ st_config = Helpers::ConfigHelper.new({
         "syndication-manager-webapp" => "syndication-manager-webapp",
         "syndication-manager-release" => "syndication-manager-release",
       },
+    },
+    {
+      ci_root: "https://ci-app.test.bbc.co.uk/hudson/api/json",
+      jobs: {
+        "syndication-manager-build" => "syndication-manager-build",
+      },
     }
     ]
 });
 
 SCHEDULER.every '10s', :first_in => 0 do |job|
-  JobHealth::Job.updateUsing st_config
+  JobHealth::Job.updateUsing syn_config
 end
-
-
-# {
-#   ci_root: "https://ci-app.test.bbc.co.uk/hudson/api/json",
-#   jobs: {
-#     "syndication-manager-build" => "syndication-manager-build",
-#   },
-# }

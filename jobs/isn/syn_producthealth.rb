@@ -1,8 +1,8 @@
 require_relative '../producthealth_module'
 require_relative '../configuration_helper'
 
-st_config = Helpers::ConfigHelper.new({
-    job_prefix: "st_",
+syn_config = Helpers::ConfigHelper.new({
+    job_prefix: "syn_",
     col_count: 2,
     job_css: "medium_font",
     components: [
@@ -16,5 +16,5 @@ st_config = Helpers::ConfigHelper.new({
 });
 
 SCHEDULER.every '10s', :first_in => 0 do |job|
-  ProductHealth::Product.updateUsing st_config
+  ProductHealth::Product.updateUsing syn_config
 end

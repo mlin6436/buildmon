@@ -1,8 +1,8 @@
 require_relative '../buildhealth_module'
 require_relative '../configuration_helper'
 
-st_config = Helpers::ConfigHelper.new({
-  job_prefix:         "st_",
+syn_config = Helpers::ConfigHelper.new({
+  job_prefix:         "syn_",
     default_gravatar:   "https://recruiter.files.wordpress.com/2014/09/unicorn.jpg",
     ci_components: [{
       ci_root:  "https://jenkins.bbc.co.uk/api/json/"
@@ -15,5 +15,5 @@ st_config = Helpers::ConfigHelper.new({
 })
 
 SCHEDULER.every '10s', :first_in => 0 do |job|
-  BuildHealth::Job.updateUsing st_config
+  BuildHealth::Job.updateUsing syn_config
 end
