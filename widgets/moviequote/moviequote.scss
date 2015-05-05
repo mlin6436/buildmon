@@ -1,0 +1,26 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #ec663c;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-text styles
+// ----------------------------------------------------------------------------
+.widget-moviequote {
+
+  background-color: $background-color;
+
+  .text { font-family: Didot, "Didot LT STD", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+					font-style: italic; font-weight: 100; }
+
+	.quote { color: $title-color; font-size: 35px; }
+  .actor { color: $moreinfo-color; }
+
+	.img-container { position:absolute; right:0px; top:0px; width:150px; overflow:hidden }
+	.msg-container { padding:0px 20px; width: 400px; }
+
+	.reveal-time { color: $moreinfo-color; padding: 0px 20px; font-size: 16px; bottom: 8px; position:absolute}
+}

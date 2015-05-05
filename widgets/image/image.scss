@@ -1,0 +1,31 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #ffe710;
+$sport-background-color:  #ffe710;
+$meh-background-color:  #00acb0;
+$crb-background-color:  #e1031d;
+$tal-background-color:  #B2B2B7;
+
+// ----------------------------------------------------------------------------
+// Widget-image styles
+// ----------------------------------------------------------------------------
+.sport_logo.widget-image {
+  background-color: $sport-background-color;
+}
+
+.meh_logo.widget-image {
+  background-color: $meh-background-color;
+}
+
+.crb_logo.widget-image {
+   background-color: $meh-background-color;
+ }
+
+.tal_logo.widget-image {
+  background-color: $tal-background-color;
+}
+
+.meh_logo .img, .crb_logo .img {
+		opacity:0.7;
+}

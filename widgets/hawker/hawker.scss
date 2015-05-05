@@ -1,0 +1,46 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color: #222222;
+$msg-color: rgba(255, 255, 255, 0.7);
+$time-stamp-color: rgba(255, 255, 255, 0.3);
+
+$red: #ed4337;
+$blue: #3498db;
+$green: #2cc36b;
+$yellow: #ffff00;
+
+$value-color:       #fff;
+
+$message_height : 150px;
+$font_size			: (0.2)*$message_height;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$label-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-list styles
+// ----------------------------------------------------------------------------
+
+.widget-hawker {
+
+  background-color: $background-color;
+	vertical-align: top !important;
+	padding: 0px !important;
+
+	.img { width:80%; height:80%; border-radius:50%; background-size:cover; margin:10%;}
+	.post { width:inherit; height:$message_height; position:relative }
+
+	.imgContainer { position:absolute; height:$message_height; width:$message_height; }
+	.imgContainer.right { right:0px; }
+	.imgContainer.left { left:0px; }
+
+	.msgAligner { height:inherit; width:inherit; display:table-cell; vertical-align:middle; }
+	.msg { font-size:$font_size; color:$msg-color; }
+	.msgTimeStamp { font-size:(3/5)*$font_size; color:$time-stamp-color; }
+
+	.msgContainer { height:inherit; position:absolute; }
+	.msgContainer.right { text-align:right; right:$message_height; }
+	.msgContainer.left { text-align:left; left:$message_height; }
+}

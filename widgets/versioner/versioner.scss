@@ -1,0 +1,74 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #12b0c5;
+$value-color:       #fff;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$label-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-list styles
+// ----------------------------------------------------------------------------
+
+.widget-versioner {
+
+	padding: 0px !important;
+
+  .title {
+    color: $title-color;
+		bottom: 30px;
+		position: absolute;
+		width: 100%;
+  }
+
+	.env {
+			 font-size: 140px;
+			 top:20px;
+			 right: 20px;
+			 color:rgba(255,255,255,0.08);
+			 position:absolute;
+			 vertical-align:top;
+	}
+
+	.left {
+			width: 50%; display:block; float:left;
+	}
+
+	.right {
+			width: 50%; display:block; float:right;
+	}
+
+	.version {
+			font-size: 60px; color: rgba(255, 255, 255, 0.7); height: 45px;
+	}
+
+	.name{
+			font-size : 20px; color: rgba(0, 0, 0, 0.5)
+	}
+
+	.build {			
+			font-size : 20px; color: rgba(255, 255, 255, 0.7)
+	}
+
+	.name {
+			height: 10px;
+	}
+
+	.listitem.col1 {
+			margin-bottom: 15px;
+	}
+
+	.listitem.col2 {
+			margin-bottom: 25px;
+	}
+
+	.last-successful {
+			font-style:italic;
+	}
+
+  .updated-at {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}

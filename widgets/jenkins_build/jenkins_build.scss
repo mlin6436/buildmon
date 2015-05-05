@@ -1,0 +1,76 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:            #4b5f24;
+$background-color--success:   #2CB23A;
+$background-color--failure:   #D12A2A;
+$background-color--prebuild:  #298BD5;
+ 
+$title-color:       rgba(255, 255, 255, 1);
+$moreinfo-color:    rgba(255, 255, 255, 0.3);
+ 
+$meter-background:  rgba(20, 20, 20, 1);
+ 
+// ----------------------------------------------------------------------------
+// Widget-jenkins-build styles
+// ----------------------------------------------------------------------------
+.widget-jenkins-build {
+ 
+  background-color: $background-color;
+
+  &.widget-jenkins-build--success {
+    background-color: $background-color--success;
+  }
+
+  &.widget-jenkins-build--failure {
+    background-color: $background-color--failure;
+  }
+
+  &.widget-jenkins-build--prebuild {
+    background-color: $background-color--prebuild;
+  }
+
+  input.jenkins-build {
+    background-color: $meter-background;
+    color: #fff;
+  }
+ 
+  .title {
+    color: $title-color;
+  }
+ 
+  .more-info {
+    color: $moreinfo-color;
+  }
+ 
+  .updated-at {
+    color: rgba(0, 0, 0, 1);
+  }
+
+  label {
+    float: left;
+    padding: 5px;
+    width: 50%;
+    text-align: left;
+  }
+  input {
+    float: right;
+    margin-left: -55px !important;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  div {
+    align-content: center;
+  }
+
+  canvas {
+    padding: 5px;
+    //width: 90px;
+    height: 90px;
+  }
+
+
+}

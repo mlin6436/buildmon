@@ -1,0 +1,64 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  rgba(255, 255, 255, 0.2);
+$front-color: #38c143;
+
+$red: #ed4337;
+$blue: #3498db;
+$green: #38c143;
+$yellow: #ffe711;
+
+$value-color:       #fff;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$dark-title-color:  rgba(0, 0, 0, 0.3);
+$label-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-list styles
+// ----------------------------------------------------------------------------
+
+.widget-jobalerter {
+
+  background-color: $background-color;
+	padding: 0px !important;
+
+  .title {
+    color: $title-color;
+		bottom: 30px;
+		position: absolute;
+		width: 100%;
+  }
+
+	.job {
+			font-size: 250%; color: $title-color; text-align: left; padding: 2%; vertical-align: top !important;
+	}
+
+	/* .red { */
+	/* 		background-color: $red; */
+	/* } */
+
+	/* .green { */
+	/* 		background-color: $green; */
+	/* } */
+
+	/* .yellow.job { */
+	/* 		background-color: $yellow; color: $dark-title-color; */
+	/* } */
+
+	/* .flashing { */
+	/* 		-webkit-animation: buildingBackground 3s infinite; */
+	/* } */
+
+  .updated-at {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+	.left {
+			float:left;
+			width: 90%;
+			margin: 0% 5%;
+	}
+}

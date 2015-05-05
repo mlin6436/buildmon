@@ -1,0 +1,57 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #1BA39C;
+
+// ----------------------------------------------------------------------------
+// Widget-text styles
+// ----------------------------------------------------------------------------
+@function get-font-color($color) {
+		@if ( lightness($color) > 40 ) {
+				@return rgb(0,0,0)
+		} @else {
+				@return rgb(255,255,255)
+		}
+}
+
+.widget-opsticket {
+  background-color: $background-color;
+
+	.timer { font-size: 35px; display: inline-block; vertical-align: middle; }
+	.time { font-size: 90px; padding: 0px 10px; }
+	.timer-container { margin-top: -10px; padding-right: 40px }
+	.timer-summary { font-size: 18px; padding-right:40px }
+	.ticket-summary {
+			font-size: 18px;
+			padding-right:40px;
+			padding-left:10px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			box-sizing: border-box;
+			width: 770px;
+	}
+	.timer-label { font-size: 10px; margin-top: -20px}
+	.semi-colon { font-size: 70px; }
+
+	.tick-box { position: absolute; right:0px; top:0px; height: 100%; border-left: 4px solid #222222; padding-left:10px; width:25px; }
+	.tick { display: block; padding: 20px 20px 15px 0px }
+
+	.error-label { vertical-align:middle; }
+	.msg-container { font-size:20px; margin-right:40px; padding: 0px 20px; display: none }
+	.msg-icon { width:100%; font-size:60px; padding: 10px 0px; }
+
+	.title { color: rgba(get-font-color($background-color), 0.7) }
+	.info { color: rgba(get-font-color($background-color), 0.5) }
+	.label { color: rgba(get-font-color($background-color), 0.4) }
+	.digit { font-weight: lighter }
+
+	b { font-size: 22px; }
+}
+
+.widget-opsticket.hide-timer {
+		.timer-container, .timer-summary, .ticket-summary { display: none }
+		.msg-container { display: block }
+}
+
+.flash { -webkit-animation: fadeinout 2s infinite; }
