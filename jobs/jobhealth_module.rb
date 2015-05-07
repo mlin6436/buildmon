@@ -40,7 +40,7 @@ module JobHealth
       jobs_health_hash[:components] = job_health_components_hash.values
 
 #      p "sending jobs_health event: " + jobs_health_hash.to_s
-      send_event(config[:job_prefix] + 'jobs_health', jobs_health_hash)
+      send_event(config[:job_prefix] + 'jobhealth', jobs_health_hash)
     end
 
     private
