@@ -53,7 +53,13 @@ syn_config = Helpers::ConfigHelper.new({
       jobs: {
         "syndication-manager-build" => "syndication-manager-build",
       },
-    }
+  },
+  {
+    ci_root: "https://jenkins.bbc.co.uk/api/json/",
+    jobs: {
+      "info-syn-dashboard" => "dashboard",
+    },
+  }
     ]
 });
 
