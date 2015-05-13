@@ -1,4 +1,4 @@
-# buildmon
+# zeppelin
 
 This is a snapshot of a well established dashboard project in the BBC to help dev teams get an idea of build status of Jenkins/Hudson jobs at a glance.
 
