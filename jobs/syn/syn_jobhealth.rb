@@ -3,7 +3,7 @@ require_relative '../configuration_helper'
 
 syn_config = Helpers::ConfigHelper.new({
     job_prefix: "syn_",
-    col_count: 2,
+    col_count: 3,
     job_css: "medium_font",
     components: [
     {

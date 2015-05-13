@@ -5,7 +5,7 @@ class Dashing.Buildbybuildbreakdown extends Dashing.Widget
     @cached_div = {}
     @cached_div_status = {}
     @is_first_load = true
-    
+
   onData: (data) ->
     console.log("received data: " + data, data)
     if data.curl? or data.uncurl?
@@ -15,7 +15,7 @@ class Dashing.Buildbybuildbreakdown extends Dashing.Widget
     if @is_first_load
       @is_first_load = false
       @draw data
-          
+
     @update data
 
   update: (data) ->
@@ -31,13 +31,13 @@ class Dashing.Buildbybuildbreakdown extends Dashing.Widget
 
       if data.colCount is 1
         $('[data-id="'+data.id+'"] .job').addClass('small')
-        
+
       if data.job_css
         $('[data-id="'+data.id+'"] .job').addClass(data.job_css)
 
   draw: (data) ->
     $(this).attr('data-id', data.id)
-    
+
     $('[data-id="'+data.id+'"] .col').empty()
 
     if data.colCount is 1
@@ -49,10 +49,11 @@ class Dashing.Buildbybuildbreakdown extends Dashing.Widget
     else
       for component, i in data.components
         div = @createDiv(component)
-        if (i + 1) % 2 or data.colCount is 1
-          $('[data-id="'+data.id+'"] .col.left').append div
-        else
-          $('[data-id="'+data.id+'"] .col.right').append div
+        index = (i + 1) % 3
+        switch
+          when index == 1 then $('[data-id="'+data.id+'"] .col.left').append div
+          when index == 2 then $('[data-id="'+data.id+'"] .col.mid').append div
+          when index == 0 then $('[data-id="'+data.id+'"] .col.right').append div
 
   handleCurl: (data) ->
     if data.uncurl?
@@ -67,10 +68,10 @@ class Dashing.Buildbybuildbreakdown extends Dashing.Widget
     $('[data-id="'+data.id+'"] #'+data.name)
       .addClass "merge"
       .append '<span class="runtime"></span>'
-    
+
     @time_events[data.name] = moment()
     setInterval(@setTime, 500)
-    
+
   setTime: =>
     for key, value of @time_events
       diff = moment().diff(value, 'seconds')

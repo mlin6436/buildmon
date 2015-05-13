@@ -8,8 +8,8 @@ module JobHealth
 
       jobs_health_hash = {}
       job_health_components_hash = {}
-      jobs_health_hash[:colCount]   = config[:col_count]
-      jobs_health_hash[:job_css]   = config[:job_css]
+      jobs_health_hash[:colCount] = config[:col_count]
+      jobs_health_hash[:job_css] = config[:job_css]
 
       config[:components].each { |component|
         ci_root = component[:ci_root]
