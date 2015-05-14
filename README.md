@@ -4,37 +4,34 @@ This is a snapshot of a well established dashboard project in the BBC to help de
 
 ### Setup
 
-[Dashing](http://shopify.github.io/dashing/) is the backbone of the project. Therefore, having ruby is crucial. I suggest every dev to use [rvm](https://rvm.io/rvm/basics) if possbile, the reason why you should use it and the instruciton for installing rvm can be found [here](https://github.com/mlin6436/cornerstone/blob/master/macos/install-ruby.sh). The version of ruby I use is 1.9.3, but feel free to use later versions.
+[Dashing](http://shopify.github.io/dashing/) is the backbone of this project. Therefore, having a working ruby is critical. I'd suggest every dev to use [rvm](https://rvm.io/rvm/basics), find the reasons and how-to's [here](https://github.com/mlin6436/cornerstone/blob/master/macos/install-ruby.sh). The version of ruby I use is 1.9.3, but feel free to adapt later versions.
 
-Once ruby is configured, try the following commands to start the application,
+Once ruby is configured, use the following commands to start the application,
 
 ```bash
 $ git clone git@github.com:mlin6436/buildmon.git
 $ cd buildmon
 $ bundle install
-$ sudo dashing start &
+$ sudo dashing start
 ```
 
-By now, the dashboard should compile fine and attempt to start. Use the url,
+By now, the dashboard should compile fine and attempt to start, with this url,
 
 ```
 http://localhost:3030
 ```
 
-While there could be complaints about endpoints, certificates and etc, you might find the answer in the following sections.
+While there could be complaints about endpoints, certificates and etc, you might find some answers in the following sections.
 
 ### Project Structure
 
 ```
 .
-├── assets
 ├── dashboards
-│   ├── layout.erb
-│   └── syn.erb
+│   ├── layout.erb
+│   └── syn.erb
 ├── jobs
-│   └── <job>_module.rb
-├── lib
-├── public
+│   └── <job>_module.rb
 └── widgets
 ```
 
@@ -92,7 +89,7 @@ To display the job configured, use the following template,
 <div>
   <ul>
     <li data-row="1" data-col="1" data-sizex="10" data-sizey="1" >
-		  <div data-id="syn_jobhealth" data-view="Buildbybuildbreakdown"></div>
+      <div data-id="syn_jobhealth" data-view="Buildbybuildbreakdown"></div>
     </li>
   </ul>
 </div>
@@ -107,14 +104,14 @@ There are couple things to know about this template:
 
 ### Certificate
 
-If the Jenkins/Hudson server uses certificate-based authentication, you will normally need to prepare 2 certificates: `ca.pem` and `personal.pem`.
+If the Jenkins/Hudson server uses certificate-based authentication, you will normally need to prepare 2 certificates: `ca.pem` and `client.pem`.
 
-`ca.pem` is a public key which can be retrieved via [ca server](http://ca.dev.bbc.co.uk/). This is not required in the BBC scenario.
+`ca.pem` is a public key which can be retrieved via ca [server](http://ca.dev.bbc.co.uk/). This is not required in the BBC scenario.
 
-`personal.pem` is a certificate assigned to individual. While you are most likely to have a `personal.p12`, which would need to be converted using the following command,
+`client.pem` is a certificate assigned to individuals. And you are most likely to have a `client.p12`, which needs to be converted with the following command,
 
 ```bash
-sudo openssl pkcs12 -in path/to/your/dev/cert.p12 -out path/to/cert.pem -nodes -clcerts
+sudo openssl pkcs12 -in path/to/your/dev/client.p12 -out path/to/client.pem -nodes -clcerts
 ```
 
-A job can use `http_helper` class to handle the HTTPS requests, given the path to `personal.pem` is correctly configured.
+Configure the path to the passwordless certificate in `jobs/http_helper.rb` to make HTTPS requests.
