@@ -106,12 +106,24 @@ There are couple things to know about this template:
 
 If the Jenkins/Hudson server uses certificate-based authentication, you will normally need to prepare 2 certificates: `ca.pem` and `client.pem`.
 
-`ca.pem` is a public key which can be retrieved via ca [server](http://ca.dev.bbc.co.uk/). This is not required in the BBC scenario.
+`ca.pem` is the root key which can be retrieved via ca [server](http://ca.dev.bbc.co.uk/).
 
-`client.pem` is a certificate assigned to individuals. And you are most likely to have a `client.p12`, which needs to be converted with the following command,
+`client.pem` is a private certificate assigned to individuals. And you are most likely to have a `client.p12`, which needs to be converted with the following command,
 
 ```bash
 sudo openssl pkcs12 -in path/to/your/dev/client.p12 -out path/to/client.pem -nodes -clcerts
 ```
 
-Configure the path to the passwordless certificate in `jobs/http_helper.rb` to make HTTPS requests.
+Configure the path to the certificates in `jobs/http_helper.rb` to make `HTTPS` requests.
+
+### BBC Certificate
+
+To access CI (Jenkins/Hudson) hosted inside the BBC, you only need to use the personal `client.pem` generated from last step.
+
+To access products hosted on AWS, both trust and client certificates are required. But look out for the correct `ca.pem` to use. Otherwise, you are more than likely to end up with the following error, leading to a dramatic ending with desperation.
+
+```
+OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+```
+
+Of course, if you'd like to read more about the issue and general SSL concepts, there are [good source](http://mislav.uniqpath.com/2013/07/ruby-openssl/) too.
